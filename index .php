@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>دعوة حفل التخرج 🎓</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #000000, #333333);
+            color:rgb(53, 112, 215);
+            font-family: 'Cairo', sans-serif;
+            text-align: center;
+            padding: 30px;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .details {
+            font-size: 20px;
+            margin: 15px 0;
+        }
+        #countdown {
+            font-size: 28px;
+            margin: 20px 0;
+            color: #fff;
+        }
+        .music-control {
+            margin-top: 20px;
+        }
+        button {
+            background:rgb(139, 157, 248);
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background:rgb(85, 124, 180);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>دعوة خاصة لحفل تخرج المهندسه/ديالا ابو زينه 🎓</h1>
+    <p class="details">بعد سنوات من الجد والاجتهاد... حان وقت الاحتفال!</p>
+    <p class="details">أتشرف بدعوتكم لحضور حفل تخرجي</p>
+    <p class="details">📅 الاربعاء 23 يوليو 2025</p>
+    <p class="details">⏰ الساعة 5:00 عصراً</p>
+    <p class="details">📍  https://maps.app.goo.gl/wtCdFf8JkThzjqNV6?g_st=iw:قاعة</p>
+    <p class="details">🎓 التخصص: هندسة برمجيات</p>
+    
+    <div id="countdown"></div>
+
+    <div class="music-control">
+   
+       <iframe width="300" height="150" 
+        src="https://youtu.be/zh7HKcuo9F0?si=CT4eTDuqeg6GiV-T" 
+        title="يا هلا بالحلم - حمود الخضر" 
+        frameborder="0" 
+        allow="autoplay; encrypted-media" 
+        allowfullscreen>
+</iframe>
+        <button onclick="toggleMusic()">تشغيل / إيقاف الموسيقى 🎵 (يا هلا بالحلم - حمود الخضر)</button>
+    </div>
+
+    <p class="details">بانتظاركم لأشارككم فرحة العمر 💖</p>
+
+    <script>
+        function toggleMusic() {
+    var music = document.getElementById('bg-music');
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
+}
+        const eventDate = new Date("July 23, 2025 17:00:00").getTime();
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("countdown").innerHTML = "🎉 لقد بدأ الحفل! 🎉";
+                return;
+            }
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML =
+                `⏳ ${days} يوم ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية `;
+        }, 1000);
+
+        const music = document.getElementById('bg-music');
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+    </script>
+
+</body>
+</html>
